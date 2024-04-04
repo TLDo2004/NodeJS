@@ -6,6 +6,8 @@ import mongoose from 'mongoose';
 import cors from "cors"
 const mongoString = process.env.DATABASE_URL
 
+import wordRoute from './routes/wordRoute.js'
+
 const app = express()
 
 mongoose.connect(mongoString);
@@ -24,6 +26,12 @@ const port = 3000
 // Global
 app.use(bodyParser.json())
 app.use(cors())
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.use('/api/v1/words', wordRoute)
 
 //Send info that page is not existed
 app.use(function (req, res) {
