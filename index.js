@@ -7,6 +7,9 @@ import cors from "cors"
 const mongoString = process.env.DATABASE_URL
 
 import wordRoute from './routes/wordRoute.js'
+import userRoute from './routes/userRoute.js'
+import quizRoute from './routes/quizRoute.js'
+
 
 const app = express()
 
@@ -32,6 +35,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/words', wordRoute)
+app.use('/api/users', userRoute)
+app.use('/api/quizs', quizRoute)
 
 //Send info that page is not existed
 app.use(function (req, res) {

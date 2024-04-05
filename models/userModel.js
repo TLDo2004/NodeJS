@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
     default: null,
   },
   birth: {
-    type: String,
+    type: Date,
     default: null,
   }
 });
