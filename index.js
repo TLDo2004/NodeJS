@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.use('/api/v1/words', wordRoute)
+app.use('/api/words', wordRoute)
 
 //Send info that page is not existed
 app.use(function (req, res) {

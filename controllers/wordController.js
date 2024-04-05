@@ -3,7 +3,7 @@ import wordModel from '../models/wordModel.js'
 export const wordCre = async (req, res, next) => {
   try {
     const cre = await wordModel.create(req.body);
-    res.status(200).json({ status: 'Create successful',  data: cre })
+    res.status(200).json({ status: 'Create successful', data: cre })
   } catch(e) {
     res.status(500).json({ status: 'error', message: e.message })
   }
