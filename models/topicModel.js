@@ -10,7 +10,7 @@ const TopicSchema = new mongoose.Schema({
     require: true,
   },
   prog: {
-    type: String,
+    type: Number,
     require: true,
   },
 });

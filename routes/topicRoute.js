@@ -9,10 +9,10 @@ import {
 
 const router = express.Router()
 
-router.post('', wordCre)
-router.get('', wordAll)
-router.get('/:id', wordById)
-router.patch('/:id', wordUpd)
-router.delete('/:id', wordDel)
+router.post('', topicCre)
+router.get('', topicAll)
+router.get('/:id', topicById)
+router.patch('/:id', topicUpd)
+router.delete('/:id', topicDel)
 
 export default router
