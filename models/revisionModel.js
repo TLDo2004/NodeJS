@@ -13,8 +13,12 @@ const RevisionSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
+  words: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Word',
+  }],
 });
 
-const Revision = mongoose.model("Revision", TopicSchema);
+const Revision = mongoose.model("Revision", RevisionSchema);
 
 export default Revision;

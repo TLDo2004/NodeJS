@@ -15,7 +15,7 @@ const UserSchema = new mongoose.Schema({
   },
   bio: {
     type: String,
-    default: null,
+    default: null,                                  
   },
   avatar: {
     type: String,
@@ -24,7 +24,24 @@ const UserSchema = new mongoose.Schema({
   birth: {
     type: Date,
     default: null,
-  }
+  },
+  words: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Word',
+  }],
+  topics: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Word',
+  }],
+  quizzes: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Word',
+  }],
+  revisions: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Word',
+  }],
+
 });
 
 const User = mongoose.model("User", UserSchema);

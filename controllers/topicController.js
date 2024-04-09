@@ -17,11 +17,11 @@ export const topicAll = async(req, res, next) => {
     res.status(500).json({ status: 'error', message: e.message })
   }
 }
-
+ 
 export const topicById = async(req, res, next) => {
   const { id } = req.params
   try {
-    const byId = await topicModel.findById({_id: id})
+    const byId = await topicModel.findById({_id: id}).populate('words')
     if(!byId) {
       res.status(404).json({ status: 'error', message: 'Not found' })
     }

@@ -13,6 +13,10 @@ const QuizSchema = new mongoose.Schema({
     type: Number,
     require: true,
   },
+  words: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Word',
+  }],
 });
 
 const Quiz = mongoose.model("Quiz", QuizSchema);

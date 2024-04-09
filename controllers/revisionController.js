@@ -21,7 +21,7 @@ export const revisionAll = async(req, res, next) => {
 export const revisionById = async(req, res, next) => {
   const { id } = req.params
   try {
-    const byId = await revisionModel.findById({_id: id})
+    const byId = await revisionModel.findById({_id: id}).populate('words')
     if(!byId) {
       res.status(404).json({ status: 'error', message: 'Not found' })
     }

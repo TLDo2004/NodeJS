@@ -21,7 +21,7 @@ export const quizAll = async(req, res, next) => {
 export const quizById = async(req, res, next) => {
   const { id } = req.params
   try {
-    const byId = await quizModel.findById({_id: id})
+    const byId = await quizModel.findById({_id: id}).populate('words')
     if(!byId) {
       res.status(404).json({ status: 'error', message: 'Not found' })
     }

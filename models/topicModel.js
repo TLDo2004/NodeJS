@@ -7,12 +7,16 @@ const TopicSchema = new mongoose.Schema({
   },
   des: {
     type: String,
-    require: true,
+    default: null,
   },
   prog: {
     type: Number,
-    require: true,
+    default: null,
   },
+  words: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Word',
+  }],
 });
 
 const Topic = mongoose.model("Topic", TopicSchema);
