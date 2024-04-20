@@ -51,7 +51,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/words', wordRoute)
 app.use('/api/users', userRoute)
-app.use('/api/quizs', quizRoute)
+app.use('/api/quizzes', quizRoute)
 app.use('/api/topics', topicRoute)
 app.use('/api/revisions', revisionRoute)
 
