@@ -12,7 +12,7 @@ export const revisionCre = async (req, res, next) => {
 export const revisionAll = async(req, res, next) => {
   try {
     const all = await revisionModel.find({})
-    res.status(200).json({ data: all });
+    res.status(200).json(all);
   } catch(e) {
     res.status(500).json({ status: 'error', message: e.message })
   }
@@ -25,7 +25,7 @@ export const revisionById = async(req, res, next) => {
     if(!byId) {
       res.status(404).json({ status: 'error', message: 'Not found' })
     }
-    res.status(200).json({ data: byId });
+    res.status(200).json(byId);
   } catch(e) {
     res.status(500).json({ status: 'error', message: e.message })
   }

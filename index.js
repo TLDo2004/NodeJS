@@ -1,7 +1,9 @@
+//import { initializeApp } from "firebase/app";
+//import functions from 'firebase-functions'
+
 import 'dotenv/config'
 import express from 'express';
 import bodyParser from 'body-parser'
-
 import mongoose from 'mongoose';
 import cors from "cors"
 const mongoString = process.env.DATABASE_URL
@@ -12,25 +14,36 @@ import quizRoute from './routes/quizRoute.js'
 import topicRoute from './routes/topicRoute.js'
 import revisionRoute from './routes/revisionRoute.js'
 
+// Global
+const port = 3000
 
 const app = express()
+app.use(bodyParser.json())
+app.use(cors({ origin: true }))
 
 mongoose.connect(mongoString);
 const database = mongoose.connection;
-
 database.on("error", (error) => {
   console.log(error);
 });
-
 database.once("connected", () => {
   console.log("Database connected");
 });
 
-const port = 3000
+// const firebaseConfig = {
+//   apiKey: "AIzaSyB3GSjffVWDic3Pb0a65FotyNQCoXeuxco",
+//   authDomain: "android-eng.firebaseapp.com",
+//   projectId: "android-eng",
+//   storageBucket: "android-eng.appspot.com",
+//   messagingSenderId: "135062509077",
+//   appId: "1:135062509077:web:1467381709853848de201c"
+// };
 
-// Global
-app.use(bodyParser.json())
-app.use(cors())
+
+
+
+
+//const myApp = initializeApp(firebaseConfig);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -50,3 +63,4 @@ app.use(function (req, res) {
 app.listen(process.env.PORT || port, () => {
   console.log(`Server running on: ${port}`)
 })
+//export const myApp = functions.https.onRequest(app);
