@@ -1,8 +1,9 @@
 import wordModel from '../models/wordModel.js' 
 
 export const wordCre = async (req, res, next) => {
+  const words  = req.body
   try {
-    const cre = await wordModel.create(req.body);
+    const cre = await wordModel.insertMany(words);
     res.status(200).json({ status: 'Create successful', data: cre })
   } catch(e) {
     res.status(500).json({ status: 'error', message: e.message })

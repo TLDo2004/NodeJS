@@ -1,8 +1,14 @@
 import mongoose from "mongoose";
 
 const QuizSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    require: true,
+  },
   type: {
     type: String,
+    enum: [ 'guess', 'fill', 'compound', 'sound'],
+    default: 'guess',
     require: true,
   },
   point: {

@@ -33,9 +33,9 @@ export const revisionById = async(req, res, next) => {
 
 export const revisionUpd = async(req, res, next) => {
   const { id } = req.params
-  const { cre_dt, alarm_dt, interval } = req.body
+  const { cre_dt, alarm_dt, interval, words } = req.body
   try {
-    const upd = await revisionModel.findByIdAndUpdate({_id: id}, { cre_dt, alarm_dt, interval }, { new: true })
+    const upd = await revisionModel.findByIdAndUpdate({_id: id}, { cre_dt, alarm_dt, interval, words }, { new: true })
     if(!upd) {
       res.status(404).json({ status: 'error', message: 'Not found' })
     }

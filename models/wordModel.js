@@ -21,7 +21,7 @@ const WordSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
-  pronun: {
+  pronoun: {
     type: String,
     default: null,
   },
