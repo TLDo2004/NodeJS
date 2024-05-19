@@ -11,7 +11,7 @@ export const revisionCre = async (req, res, next) => {
 
 export const revisionAll = async(req, res, next) => {
   try {
-    const all = await revisionModel.find({})
+    const all = await revisionModel.find({}, { words: 0 })
     res.status(200).json(all);
   } catch(e) {
     res.status(500).json({ status: 'error', message: e.message })

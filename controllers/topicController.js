@@ -13,8 +13,9 @@ export const topicCre = async (req, res, next) => {
 }
 
 export const topicAll = async(req, res, next) => {
+  
   try {
-    const all = await topicModel.find({})
+    const all = await topicModel.find({}, { words: 0 })
     res.status(200).json(all);
   } catch(e) {
     res.status(500).json({ status: 'error', message: e.message })

@@ -11,7 +11,7 @@ export const quizCre = async (req, res, next) => {
 
 export const quizAll = async(req, res, next) => {
   try {
-    const all = await quizModel.find({})
+    const all = await quizModel.find({}, { words: 0 })
     res.status(200).json(all);
   } catch(e) {
     res.status(500).json({ status: 'error', message: e.message })
@@ -33,9 +33,9 @@ export const quizById = async(req, res, next) => {
 
 export const quizUpd = async(req, res, next) => {
   const { id } = req.params
-  const { name, type, point, timer } = req.body
+  const { name, type, des, point, timer } = req.body
   try {
-    const upd = await quizModel.findByIdAndUpdate({_id: id}, { name, type, point, timer }, { new: true })
+    const upd = await quizModel.findByIdAndUpdate({_id: id}, { name, type, des, point, timer }, { new: true })
     if(!upd) {
       res.status(404).json({ status: 'error', message: 'Not found' })
     }
