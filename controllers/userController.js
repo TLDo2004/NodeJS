@@ -18,14 +18,15 @@ export const userAll = async(req, res, next) => {
   }
 }
 
-export const userById = async(req, res, next) => {
-  const { id } = req.params
+export const userByName = async(req, res, next) => {
+  const { name } = req.params
   try {
-    const byId = await userModel.findById({_id: id})
-    if(!byId) {
+    const byName = await userModel.findOne({name: name})
+    if(!byName) {
       res.status(404).json({ status: 'error', message: 'Not found' })
+    } else {
+      res.status(200).json(byName);
     }
-    res.status(200).json(byId);
   } catch(e) {
     res.status(500).json({ status: 'error', message: e.message })
   }
