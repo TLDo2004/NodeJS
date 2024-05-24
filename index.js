@@ -15,6 +15,7 @@ import topicRoute from './routes/topicRoute.js'
 import revisionRoute from './routes/revisionRoute.js'
 
 // Global
+// REPLACE YOUR MONGO URI CONNECTION STRING IN .env FILE
 const port = 3000
 
 const app = express()
@@ -38,10 +39,6 @@ database.once("connected", () => {
 //   messagingSenderId: "135062509077",
 //   appId: "1:135062509077:web:1467381709853848de201c"
 // };
-
-
-
-
 
 //const myApp = initializeApp(firebaseConfig);
 
